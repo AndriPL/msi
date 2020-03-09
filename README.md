@@ -1,2 +1,1 @@
-# msi
-Metody sztucznej inteligencji - laboratorium
+# Metody sztucznej inteligencji - laboratorium
