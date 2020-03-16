@@ -4,14 +4,15 @@ from sklearn.model_selection import StratifiedKFold
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 
-X, y = make_classification(n_samples=300, n_features=2, n_informative=2, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=2, weights=None, flip_y=0.05)
+X, y = make_classification(n_samples=300, n_features=2, n_informative=2, n_redundant=0, n_repeated=0, n_classes=2,
+                           n_clusters_per_class=2, weights=None, flip_y=0.05, random_state=1)
 
 # Przygotuj obiekt stratyfikowanej walidacji krzyżowej z pięcioma foldami.
 skf = StratifiedKFold(n_splits=5)
 
 # Przygotuj zmienną, w której będziesz przechowywać wyniki eksperymentu. Pięciofoldowa walidacja krzyżowa
 # generuje dla każdego algorytmu pięć wyników
-result = np.arange(5.)
+results = np.arange(5.)
 
 # W każdej pętli walidacji krzyżowej:
 # • zainicjalizuj klasyfikator bazowy (gaussowski naiwny klasykator Bayesa),
@@ -30,7 +31,12 @@ for train_index, test_index in skf.split(X, y):
     y_pred = clf.predict(X_test)
 
     accu = accuracy_score(y_test, y_pred)
-    result[i] = accu
+    results[i] = accu
     i += 1
 
-print(result)
+mean = np.mean(results)
+std = np.std(results)
+
+print("Results: ", results)
+print("Mean value: ", mean)
+print("Standard deviation", std)
