@@ -9,7 +9,8 @@ from sklearn.metrics import accuracy_score
 # wymagania: -problem składa się z dwóch atrybutów, - oba atrybutyproblemu sąinformatywne, a więc niema cech
 # redundantnych ani zbędnych, - problem jest dychotomią, - szum etykiet (błędnych przypisań klasy) stanowi 5% ogółu
 # wzorców, - próbka problemu składa się z trzystu wzorców równomiernie rozłożonych po jego klasach.
-X, y = ds.make_classification(n_samples=300, n_features=2, n_informative=2, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=2, weights=None, flip_y=0.05)
+X, y = ds.make_classification(n_samples=300, n_features=2, n_informative=2, n_redundant=0, n_repeated=0, n_classes=2,
+                              n_clusters_per_class=2, weights=None, flip_y=0.05)
 
 # Podziel wygenerowany w pierwszym zadaniu zbiór danych na część testową i uczącą, przyjmując 30% do testo-
 # wania i 70% do uczenia.
